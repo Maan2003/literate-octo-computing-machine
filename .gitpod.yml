@@ -2,12 +2,15 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
+  - name: nix-daemon
+    command: |
+      sudo -E PATH="$PATH" nix daemon
   - name: db
     command: |
-      ./db.sh
+      sudo -E PATH="$PATH" ./db.sh
   - name: tailscale
     command: |
-      ./tail.sh
+      sudo -E PATH="$PATH" ./tail.sh
 github: 
   prebuilds:
     # enable for the default branch
